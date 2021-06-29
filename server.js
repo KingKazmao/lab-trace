@@ -1,21 +1,48 @@
-const express = require('express')
-const path = require('Path');
-const app = express();
-const Rollbar = require("rollbar");
-const rollbar = new Rollbar({
-  accessToken: '032d9867d71b48f3b520b4bfda22ef00',
-  captureUncaught: true,
-  captureUnhandledRejections: true
-    
-})
+var Rollbar = require("rollbar");
+var rollbar = new Rollbar({
+    accessToken: '032d9867d71b48f3b520b4bfda22ef00',
+    captureUncaught: true,
+    captureUnhandledRejections: true
+});
+
+try {
+    fakeFunction();
+} catch (err) {
+    console.log(err)
+    rollbar.error(err);
+    return res.sendStatus(400);
+};
+
+
+
+//fake function
+fakeFunction();
+ catch (err) {
+    console.log(err)
+    rollbar.error(err);
+    return res.sendStatus(400);
+};
+
+rollbar.log("Big money");
 
 app.use(express.json())
-    rollbar.log('Big money')
 
-    rollbar.error('UH OHHHHHH')
-    resizeBy.sendFile(path.join(__dirname, '/public/index.html'))
+app.get('/', function(req, res) {
+res.sendFile(path.join(__dirname, '/public/index.html'))
 })
-const port = process.env.PORT || 6666;
-app.listen(port, function(){
-    console.log(` Server jamming on ${port}`)
+
+getQuerySubmit.addEventListener('click', () => {
+    axios
+        .get(http://localhost:6666/api/inventory?item=${queryInput.value})
+        .then(res => addToView(res.data))
 });
+
+
+
+
+const port = process.env.PORT || 6666
+
+app.listen(port, function()
+{console.log(working on ${port})
+})
+
